@@ -4,11 +4,16 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import SudokuGrid from './components/soduku-grid';
 import DifficultySelector from './components/difficulty-selector';
-import Controls from './components/Controls';
-import { generateSudoku, SudokuGrid as SudokuGridType } from './utils/soduku-generator';
+import Controls from './components/controls';
+import {
+  generateSudoku,
+  SudokuGrid as SudokuGridType,
+} from './utils/soduku-generator';
 
 const App: React.FC = () => {
-  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('easy');
+  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
+    'easy'
+  );
   const [initialGrid, setInitialGrid] = useState<SudokuGridType>([]);
   const [currentGrid, setCurrentGrid] = useState<SudokuGridType>([]);
 
@@ -62,7 +67,8 @@ const App: React.FC = () => {
     const startCol = Math.floor(col / 3) * 3;
     for (let r = startRow; r < startRow + 3; r++) {
       for (let c = startCol; c < startCol + 3; c++) {
-        if ((r !== excludeRow || c !== excludeCol) && grid[r][c] === num) return false;
+        if ((r !== excludeRow || c !== excludeCol) && grid[r][c] === num)
+          return false;
       }
     }
 
@@ -72,9 +78,16 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <h1>Sudoku Game</h1>
-      <DifficultySelector difficulty={difficulty} setDifficulty={setDifficulty} />
+      <DifficultySelector
+        difficulty={difficulty}
+        setDifficulty={setDifficulty}
+      />
       <Controls onNewGame={initializeGame} />
-      <SudokuGrid initialGrid={initialGrid} currentGrid={currentGrid} setCell={setCell} />
+      <SudokuGrid
+        initialGrid={initialGrid}
+        currentGrid={currentGrid}
+        setCell={setCell}
+      />
       <button onClick={checkSolution}>Check Solution</button>
     </div>
   );

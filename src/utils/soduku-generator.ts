@@ -10,7 +10,12 @@ function shuffle(array: number[]): number[] {
 }
 
 // Checks if placing num at (row, col) is valid
-function isValid(grid: SudokuGrid, row: number, col: number, num: number): boolean {
+function isValid(
+  grid: SudokuGrid,
+  row: number,
+  col: number,
+  num: number
+): boolean {
   // Check row and column
   for (let i = 0; i < 9; i++) {
     if (grid[row][i] === num || grid[i][col] === num) return false;
@@ -51,7 +56,9 @@ function generateCompleteGrid(grid: SudokuGrid): boolean {
 }
 
 // Removes numbers from the complete grid based on difficulty
-export function generateSudoku(difficulty: 'easy' | 'medium' | 'hard'): SudokuGrid {
+export function generateSudoku(
+  difficulty: 'easy' | 'medium' | 'hard'
+): SudokuGrid {
   // Initialize empty grid
   const grid: SudokuGrid = Array.from({ length: 9 }, () => Array(9).fill(0));
 

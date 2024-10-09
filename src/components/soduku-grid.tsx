@@ -7,7 +7,11 @@ interface SudokuGridProps {
   setCell: (row: number, col: number, value: number) => void;
 }
 
-const SudokuGrid: React.FC<SudokuGridProps> = ({ initialGrid, currentGrid, setCell }) => {
+const SudokuGrid: React.FC<SudokuGridProps> = ({
+  initialGrid,
+  currentGrid,
+  setCell,
+}) => {
   return (
     <div className="sudoku-grid">
       {currentGrid.map((row, rowIndex) => (
@@ -20,7 +24,7 @@ const SudokuGrid: React.FC<SudokuGridProps> = ({ initialGrid, currentGrid, setCe
                 type="number"
                 min="1"
                 max="9"
-                pattern='\d'
+                pattern="\d"
                 value={cell === 0 ? '' : cell}
                 disabled={isInitial}
                 onChange={(e) => {
@@ -28,7 +32,9 @@ const SudokuGrid: React.FC<SudokuGridProps> = ({ initialGrid, currentGrid, setCe
                   setCell(rowIndex, colIndex, value);
                 }}
                 className={`sudoku-cell ${isInitial ? 'initial' : ''} ${
-                  (colIndex + 1) % 3 === 0 && colIndex !== 8 ? 'border-right' : ''
+                  (colIndex + 1) % 3 === 0 && colIndex !== 8
+                    ? 'border-right'
+                    : ''
                 } ${(rowIndex + 1) % 3 === 0 && rowIndex !== 8 ? 'border-bottom' : ''}`}
               />
             );
