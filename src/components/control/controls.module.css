@@ -1,0 +1,31 @@
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.newGameButton {
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.newGameButton:hover {
+  background-color: #357abd;
+}
+
+.newGameButton:active {
+  background-color: #2a6496;
+}
+
+@media (max-width: 600px) {
+  .newGameButton {
+    width: 100%;
+    padding: 10px 0;
+  }
+}

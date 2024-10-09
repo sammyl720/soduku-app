@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './difficulty-selector.module.css';
 
 type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -12,10 +13,13 @@ const DifficultySelector: React.FC<DifficultySelectorProps> = ({
   setDifficulty,
 }) => {
   return (
-    <div className="difficulty-selector">
-      <label>Select Difficulty: </label>
+    <div className={styles.selectorContainer}>
+      <label className={styles.selectorLabel} htmlFor="difficulty-select">
+        Select Difficulty:{' '}
+      </label>
       <select
-        title="difficulty selector"
+        id="difficulty-select"
+        className={styles.selector}
         value={difficulty}
         onChange={(e) => setDifficulty(e.target.value as Difficulty)}
       >

@@ -1,0 +1,66 @@
+.sudokuGrid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0;
+  background-color: var(--color-border);
+  padding: 2px;
+  border-radius: 8px;
+}
+
+.sudokuCell {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  font-size: 1.2rem;
+  outline: none;
+  background-color: #fafafa;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.sudokuCell.initial {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.sudokuCell::-webkit-outer-spin-button,
+.sudokuCell::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.sudokuCell[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.sudokuCell:hover:not(.initial) {
+  background-color: #f0f8ff;
+}
+
+.sudokuCell:focus:not(.initial) {
+  border-color: var(--color-primary);
+  background-color: #f0f8ff;
+}
+
+.border-right {
+  border-right: 2px solid var(--color-primary);
+}
+
+.border-bottom {
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* Responsive Cell Sizing */
+@media (max-width: 600px) {
+  .sudokuGrid {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .sudokuCell {
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+}

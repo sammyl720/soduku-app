@@ -1,0 +1,45 @@
+.appContainer {
+  background-color: var(--color-sudoku-background);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90vw;
+}
+
+.appTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+}
+
+.checkButton {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.checkButton:hover {
+  background-color: #3ac1a9;
+}
+
+@media (max-width: 600px) {
+  .appContainer {
+    padding: 20px 15px;
+  }
+
+  .appTitle {
+    font-size: 1.5rem;
+  }
+
+  .checkButton {
+    width: 100%;
+  }
+}

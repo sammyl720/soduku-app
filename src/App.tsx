@@ -1,10 +1,8 @@
-// src/App.tsx
-
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import SudokuGrid from './components/soduku-grid';
-import DifficultySelector from './components/difficulty-selector';
-import Controls from './components/controls';
+import styles from './App.module.css';
+import SudokuGrid from './components/soduku-grid/soduku-grid';
+import DifficultySelector from './components/difficulty-selector/difficulty-selector';
+import Controls from './components/control/controls';
 import {
   generateSudoku,
   SudokuGrid as SudokuGridType,
@@ -76,8 +74,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
-      <h1>Sudoku Game</h1>
+    <div className={styles.appContainer}>
+      <h1 className={styles.appTitle}>Sudoku Game</h1>
       <DifficultySelector
         difficulty={difficulty}
         setDifficulty={setDifficulty}
@@ -88,7 +86,9 @@ const App: React.FC = () => {
         currentGrid={currentGrid}
         setCell={setCell}
       />
-      <button onClick={checkSolution}>Check Solution</button>
+      <button className={styles.checkButton} onClick={checkSolution}>
+        Check Solution
+      </button>
     </div>
   );
 };
