@@ -29,6 +29,7 @@ const SudokuGrid: React.FC<SudokuGridProps> = ({
               type="number"
               min="1"
               max="9"
+              inputMode="numeric"
               title={`Row ${rowIndex + 1} Column ${colIndex + 1}`}
               pattern="\d"
               value={cell === 0 ? '' : cell}
