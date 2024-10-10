@@ -3,7 +3,9 @@ import styles from './App.module.css';
 import SudokuGridComponent from './components/soduku-grid/soduku-grid';
 import DifficultySelector from './components/difficulty-selector/difficulty-selector';
 import Controls from './components/control/controls';
-import SudokuGenerator, { SudokuGrid } from './utils/soduku-generator';
+import SudokuGenerator, {
+  SudokuGrid,
+} from './utils/soduku-generator/soduku-generator';
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
