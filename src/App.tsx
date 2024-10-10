@@ -6,6 +6,7 @@ import Controls from './components/control/controls';
 import SudokuGenerator, {
   SudokuGrid,
 } from './utils/soduku-generator/soduku-generator';
+import { ToastContainer, toast } from 'react-toastify';
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
@@ -38,12 +39,17 @@ const App: React.FC = () => {
       for (let col = 0; col < 9; col++) {
         const value = currentGrid[row][col];
         if (value === 0 || !isValid(currentGrid, value, row, col, row, col)) {
-          alert('Incorrect solution!');
+          toast.error('Incorrect solution!');
           return;
         }
       }
     }
-    alert('Congratulations! You solved the puzzle.');
+    toast.success(
+      <div>
+        <strong>Congratulations!</strong>
+        <p>You solved the puzzle.</p>
+      </div>
+    );
   };
 
   // Helper function to validate the current grid
@@ -90,6 +96,18 @@ const App: React.FC = () => {
       <button className={styles.checkButton} onClick={checkSolution}>
         Check Solution
       </button>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };
