@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
-import SudokuGrid from './components/soduku-grid/soduku-grid';
+import SudokuGridComponent from './components/soduku-grid/soduku-grid';
 import DifficultySelector from './components/difficulty-selector/difficulty-selector';
 import Controls from './components/control/controls';
-import {
-  generateSudoku,
-  SudokuGrid as SudokuGridType,
-} from './utils/soduku-generator';
+import SudokuGenerator, { SudokuGrid } from './utils/soduku-generator';
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
     'easy'
   );
-  const [initialGrid, setInitialGrid] = useState<SudokuGridType>([]);
-  const [currentGrid, setCurrentGrid] = useState<SudokuGridType>([]);
+  const [initialGrid, setInitialGrid] = useState<SudokuGrid>([]);
+  const [currentGrid, setCurrentGrid] = useState<SudokuGrid>([]);
+
+  const generator = new SudokuGenerator();
 
   const initializeGame = () => {
-    const newGrid = generateSudoku(difficulty);
+    const newGrid = generator.generateSudoku(difficulty);
     setInitialGrid(newGrid);
     setCurrentGrid(JSON.parse(JSON.stringify(newGrid))); // Deep copy
   };
@@ -47,7 +46,7 @@ const App: React.FC = () => {
 
   // Helper function to validate the current grid
   const isValid = (
-    grid: SudokuGridType,
+    grid: SudokuGrid,
     num: number,
     row: number,
     col: number,
@@ -81,7 +80,7 @@ const App: React.FC = () => {
         setDifficulty={setDifficulty}
       />
       <Controls onNewGame={initializeGame} />
-      <SudokuGrid
+      <SudokuGridComponent
         initialGrid={initialGrid}
         currentGrid={currentGrid}
         setCell={setCell}
