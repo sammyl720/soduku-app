@@ -1,6 +1,6 @@
 .appContainer {
   background-color: var(--color-sudoku-background);
-  padding: 40px 30px;
+  padding: 20px 30px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: clamp(375px, 90vw, 600px);

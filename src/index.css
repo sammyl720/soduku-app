@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-block: 12px;
 }
 
 button {
@@ -36,4 +36,10 @@ button {
 
 select {
   font-family: var(--font-family);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin-top: calc(10vh + 0.25rem);
+  }
 }

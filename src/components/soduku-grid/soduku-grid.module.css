@@ -3,8 +3,7 @@
   grid-template-columns: repeat(9, 1fr);
   gap: 0;
   background-color: var(--color-border);
-  padding: 2px;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 .sudokuCell {
@@ -43,16 +42,16 @@
 }
 
 .sudokuCell:focus:not(.initial) {
-  border-color: var(--color-primary);
+  /* border-color: var(--color-primary); */
   background-color: #f0f8ff;
 }
 
 .borderRight {
-  border-right: 2px solid var(--color-primary);
+  border-right: 3px solid var(--color-background);
 }
 
 .borderBottom {
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 3px solid var(--color-background);
 }
 
 /* Responsive Cell Sizing */
