@@ -45,11 +45,11 @@
   background-color: #f0f8ff;
 }
 
-.border-right {
+.borderRight {
   border-right: 2px solid var(--color-primary);
 }
 
-.border-bottom {
+.borderBottom {
   border-bottom: 2px solid var(--color-primary);
 }
 
