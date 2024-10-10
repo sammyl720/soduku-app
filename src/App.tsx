@@ -7,6 +7,7 @@ import SudokuGenerator, {
   SudokuGrid,
 } from './utils/soduku-generator/soduku-generator';
 import { ToastContainer, toast } from 'react-toastify';
+import ConfettiExplosion from './components/confetti-explosion/confetti-explosion';
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
@@ -14,6 +15,7 @@ const App: React.FC = () => {
   );
   const [initialGrid, setInitialGrid] = useState<SudokuGrid>([]);
   const [currentGrid, setCurrentGrid] = useState<SudokuGrid>([]);
+  const [showConfetti, setShowConfetti] = useState<boolean>(false);
 
   const generator = new SudokuGenerator();
 
@@ -21,6 +23,7 @@ const App: React.FC = () => {
     const newGrid = generator.generateSudoku(difficulty);
     setInitialGrid(newGrid);
     setCurrentGrid(JSON.parse(JSON.stringify(newGrid))); // Deep copy
+    setShowConfetti(false);
   };
 
   useEffect(() => {
@@ -50,6 +53,12 @@ const App: React.FC = () => {
         <p>You solved the puzzle.</p>
       </div>
     );
+    // Trigger confetti
+    setShowConfetti(true);
+    // Stop confetti after a certain duration
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000); // Confetti lasts for 5 seconds
   };
 
   // Helper function to validate the current grid
@@ -108,6 +117,7 @@ const App: React.FC = () => {
         pauseOnHover
         theme="colored"
       />
+      <ConfettiExplosion active={showConfetti} duration={5000} />
     </div>
   );
 };
