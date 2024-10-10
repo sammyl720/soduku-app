@@ -6,32 +6,57 @@
   width: clamp(375px, 90vw, 600px);
 }
 
+.header {
+  background-color: var(--color-primary);
+  color: var(--color-sudoku-background);
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
 .appTitle {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
-  color: var(--color-primary);
 }
 
 .checkButton {
-  display: block;
   margin: 30px auto 0;
   padding: 10px 20px;
-  background-color: var(--color-secondary);
-  color: #fff;
-  border: none;
+  background-color: var(--color-sudoku-background);
+  color: var(--color-primary);
+  border: 1px solid currentColor;
   border-radius: 6px;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 20px;
 }
 
 .checkButton:hover {
-  background-color: #3ac1a9;
+  background-color: var(--color-primary);
+  color: var(--color-sudoku-background);
 }
 
 @media (max-width: 600px) {
   .appContainer {
     padding: 20px 15px;
+  }
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
   }
 
   .appTitle {

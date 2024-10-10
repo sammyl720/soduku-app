@@ -8,6 +8,7 @@ import SudokuGenerator, {
 } from './utils/soduku-generator/soduku-generator';
 import { ToastContainer, toast } from 'react-toastify';
 import ConfettiExplosion from './components/confetti-explosion/confetti-explosion';
+import { FaPlane } from 'react-icons/fa'; // Importing icons for difficulty levels
 
 const App: React.FC = () => {
   const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(
@@ -96,7 +97,9 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.appContainer}>
-      <h1 className={styles.appTitle}>Sudoku Game</h1>
+      <header className={styles.header}>
+        <h1 className={styles.appTitle}>Sudoku Master</h1>
+      </header>
       <DifficultySelector
         difficulty={difficulty}
         setDifficulty={setDifficulty}
@@ -109,6 +112,7 @@ const App: React.FC = () => {
       />
       <button className={styles.checkButton} onClick={checkSolution}>
         Check Solution
+        <FaPlane className={styles.icon} />
       </button>
       <ToastContainer
         position="top-right"
