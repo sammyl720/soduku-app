@@ -1,19 +1,27 @@
 {
-  "name": "Play Sudoku",
+  "name": "Sudoku Master",
   "short_name": "Sudoku",
+  "description": "Challenge your mind with Sudoku Master!",
+  "start_url": "/",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#4a90e2",
   "background_color": "#ffffff",
   "display": "standalone"
 }
