@@ -22,7 +22,12 @@ const App: React.FC = () => {
   const initializeGame = () => {
     const newGrid = generator.generateSudoku(difficulty);
     setInitialGrid(newGrid);
-    setCurrentGrid(JSON.parse(JSON.stringify(newGrid))); // Deep copy
+    setCurrentGrid(structuredClone(newGrid)); // Deep copy
+    setShowConfetti(false);
+  };
+
+  const resetGame = () => {
+    setCurrentGrid(structuredClone(initialGrid)); // Deep copy
     setShowConfetti(false);
   };
 
@@ -96,7 +101,7 @@ const App: React.FC = () => {
         difficulty={difficulty}
         setDifficulty={setDifficulty}
       />
-      <Controls onNewGame={initializeGame} />
+      <Controls onNewGame={initializeGame} onReset={resetGame} />
       <SudokuGridComponent
         initialGrid={initialGrid}
         currentGrid={currentGrid}

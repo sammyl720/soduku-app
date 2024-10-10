@@ -3,16 +3,24 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  gap: 12px;
+  cursor: pointer;
 }
 
-.newGameButton {
+.newGameButton,
+.controlButton {
   padding: 8px 16px;
-  background-color: var(--color-primary);
-  color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.newGameButton {
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
 .newGameButton:hover {
@@ -28,4 +36,8 @@
     width: 100%;
     padding: 10px 0;
   }
+}
+
+.icon {
+  margin-right: 6px;
 }
