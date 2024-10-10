@@ -8,19 +8,21 @@
 }
 
 .sudokuCell {
-  padding: 10px 0;
+  padding: 8px 0;
   text-align: center;
   border: 1px solid var(--color-border);
   font-size: 1.2rem;
   outline: none;
   background-color: #fafafa;
+  border-radius: 0;
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
 
 .sudokuCell.initial {
-  background-color: #e0e0e0;
+  background-color: var(--color-primary);
+  color: var(--color-background);
   font-weight: bold;
 }
 
